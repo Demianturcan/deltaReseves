@@ -25,19 +25,21 @@ foreach ($reservas as $reserva) {
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
-<ul>
-    <li><a href="index.php">Index</a></li>
-    <li><a href="estados.php">Estados</a></li>
-</ul>
-
-<h1>Reservas Agrupadas por Estado</h1>
-<table border="1">
+<div class="container">
+    <nav>
+        <ul class="nav">
+            <li><a href="index.php">Index</a></li>
+            <li><a href="estados.php">Estados</a></li>
+        </ul>
+    </nav>
+</div>
+<div class="tContainer">
+<table class="tEstados">
     <thead>
-    <tr>
-        <th>Estado 0</th>
-        <th>Estado 1</th>
-        <th>Estado 2</th>
+    <tr class = "tEstados2">
+        <th>ENTRANTE</th>
+        <th>INMINENTE</th>
+        <th>PENDIENTE</th>
     </tr>
     </thead>
     <tbody>
@@ -51,7 +53,7 @@ foreach ($reservas as $reserva) {
         echo '<td>';
         if (isset($reservasPorEstado[0][$i])) {
             echo "ID: " . $reservasPorEstado[0][$i]['id'] . "<br>";
-            echo "Nombre: " . $reservasPorEstado[0][$i]['nom_cliente'];
+            echo " " . $reservasPorEstado[0][$i]['nom_cliente'];
         }
         echo '</td>';
 
@@ -59,7 +61,7 @@ foreach ($reservas as $reserva) {
         echo '<td>';
         if (isset($reservasPorEstado[1][$i])) {
             echo "ID: " . $reservasPorEstado[1][$i]['id'] . "<br>";
-            echo "Nombre: " . $reservasPorEstado[1][$i]['nom_cliente'];
+            echo " " . $reservasPorEstado[1][$i]['nom_cliente'];
         }
         echo '</td>';
 
@@ -67,7 +69,7 @@ foreach ($reservas as $reserva) {
         echo '<td>';
         if (isset($reservasPorEstado[2][$i])) {
             echo "ID: " . $reservasPorEstado[2][$i]['id'] . "<br>";
-            echo "Nombre: " . $reservasPorEstado[2][$i]['nom_cliente'];
+            echo " " . $reservasPorEstado[2][$i]['nom_cliente'];
         }
         echo '</td>';
 
@@ -76,6 +78,7 @@ foreach ($reservas as $reserva) {
     ?>
     </tbody>
 </table>
+</div>
 <script>
     // Function to refresh the page
     function refreshPage() {

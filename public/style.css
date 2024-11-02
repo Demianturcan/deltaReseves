@@ -1,17 +1,70 @@
-body {
-    font-family: Arial, sans-serif;
+/* navbar */
+.container {
+    padding: 10px; /* Padding around the nav */
 }
 
-table {
+.nav {
+    list-style-type: none; /* Remove bullet points */
+    margin: 0; /* Reset margin */
+    padding: 0; /* Reset padding */
+    text-align: center;
+}
+
+.nav li {
+    padding: 6px;
+    display: inline; /* Inline list items for horizontal layout */
+    margin-right: 30px; /* Space between links */
+}
+
+.nav a {
+    color: #fff; /* White text color */
+    text-decoration: none; /* Remove underline */
+    padding: 6px; /* Padding for links */
+}
+
+.nav a:hover {
+    background-color: #555; /* Darker background on hover */
+    border-radius: 4px; /* Rounded corners for hover effect */
+}
+
+
+/* tablas */
+.tContainer {
+    height: 100%;
+    padding-top: 10px;
+    padding-bottom: 130px;
+    background-color: #121313;
+    border-radius: 20px;
+}
+
+body {
+    font-family: monaco, sans-serif;
+    background-color: #1e2022;
+}
+.tEstados{
+    width: 100%;
+    text-align: center;
+    border: none;
+}
+.tEstados2{
+
+    font-family: monaco, sans-serif;
+    color: rgba(49, 124, 209, 0.84);
+    font-size: 40px;
+
+}
+.tAdmin {
     width: 100%;
     border-collapse: collapse;
+    font-size: 30px;
+
 }
 
-th, td {
-    border: 1px solid #ddd;
+td {
+    color: rgba(232, 232, 232, 0.84);
+    font-size: 25px;
     padding: 8px;
+    font-weight: bold;
+
 }
 
-th {
-    background-color: #f2f2f2;
-}

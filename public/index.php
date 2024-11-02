@@ -70,7 +70,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_FILES['file'])) {
     <li><a href="estados.php">Estados</a></li>
 </ul>
 <h1>Estado de Reservas</h1>
-<table>
+<table class="tAdmin">
     <thead>
     <tr>
         <th>ID</th>
@@ -123,7 +123,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_FILES['file'])) {
             var reservaId = $(this).data('id');
 
             $.ajax({
-                url: '../src/update_estado.php', // Archivo que manejará la actualización
+                url: 'update_estado.php', // Archivo que manejará la actualización
                 type: 'POST',
                 data: {
                     id: reservaId,
