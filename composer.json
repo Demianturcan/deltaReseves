@@ -1,0 +1,15 @@
+{
+    "require": {
+        "phpoffice/phpspreadsheet": "^3.3",
+      "ext-pdo": "*"
+    },
+  "autoload": {
+    "psr-4": {
+      "src\\": "src/"
+    }
+  },
+  "config": {
+
+    "platform-check": false
+  }
+}

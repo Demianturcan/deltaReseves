@@ -1,0 +1,27 @@
+	- iniciar xampp
+sudo /opt/lampp/lampp start
+sudo /opt/lampp/manager-linux-x64.run
+
+
+ 	- phpspreadsheet
+composer require phpoffice/phpspreadsheet
+
+	
+	- mysql
+systemctl start mysql
+mysql -u root -p
+ 	- conectar amb usuari
+mysql -u reservadb -p reservadb
+
+CREATE DATABASE reservadb;
+CREATE USER 'reservadb'@'localhost' IDENTIFIED BY 'microdelta';
+GRANT ALL PRIVILEGES ON reservadb.* TO 'reservadb'@'localhost';
+
+
+CREATE TABLE reservas (
+    id INT PRIMARY KEY,
+    nombre_cliente INT,
+    numero_personas INT NOT NULL,
+    hora_reserva TIME NOT NULL,
+    estado VARCHAR(50) NOT NULL
+);
