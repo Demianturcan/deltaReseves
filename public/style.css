@@ -1,46 +1,47 @@
 /* navbar */
 .container {
-    padding: 10px; /* Padding around the nav */
+    padding: 2px;
 }
 
 .nav {
-    list-style-type: none; /* Remove bullet points */
-    margin: 0; /* Reset margin */
-    padding: 0; /* Reset padding */
     text-align: center;
 }
 
 .nav li {
     padding: 6px;
-    display: inline; /* Inline list items for horizontal layout */
-    margin-right: 30px; /* Space between links */
+    display: inline;
+    margin-right: 30px;
 }
 
 .nav a {
-    color: #fff; /* White text color */
-    text-decoration: none; /* Remove underline */
-    padding: 6px; /* Padding for links */
+    color: #fff; /
+    text-decoration: none;
+    padding: 4px;
 }
 
 .nav a:hover {
-    background-color: #555; /* Darker background on hover */
-    border-radius: 4px; /* Rounded corners for hover effect */
+    background-color: #555;
+    border-radius: 4px;
 }
 
-
-/* tablas */
-.tContainer {
-    height: 100%;
-    padding-top: 10px;
-    padding-bottom: 130px;
-    background-color: #121313;
-    border-radius: 20px;
-}
 
 body {
     font-family: monaco, sans-serif;
     background-color: #1e2022;
 }
+
+/* tabla estados */
+.tContainer {
+
+    height: 100%;
+    padding-top: 10px;
+    padding-bottom: 60px;
+    background-color: #121313;
+    border-radius: 20px;
+
+}
+
+
 .tEstados{
     width: 100%;
     text-align: center;
@@ -53,18 +54,59 @@ body {
     font-size: 40px;
 
 }
-.tAdmin {
-    width: 100%;
-    border-collapse: collapse;
-    font-size: 30px;
 
-}
-
-td {
+.tEstados3 {
     color: rgba(232, 232, 232, 0.84);
     font-size: 25px;
-    padding: 8px;
+    padding-top: 4px;
+    padding-bottom: 20px;
     font-weight: bold;
 
 }
 
+/* tabla datos */
+.dataContainer {
+
+    height: 100%;
+    padding: 20px;
+
+    border-radius: 20px;
+
+}
+
+.tData {
+    border-collapse: collapse;
+
+    font-family: monaco, sans-serif;
+    width: 60%;
+    margin: 0 auto;
+    font-size: 20px;
+    border: 1px solid #434343;
+    background-color: #121313;
+
+}
+.tData th, tr {
+    border: 1px solid #5c5c5c;
+    padding: 4px;
+    color: white;
+
+
+
+}
+.tData td {
+    border: 1px solid #535353;
+    padding: 4px;
+    color: white;
+
+}
+
+/* archivo */
+.archivo {
+    display: grid;
+    place-items: center; /* Centers both vertically and horizontally */
+    padding: 10px; /* Full viewport height */
+}
+
+.center-div {
+    width: 50%; /* Set a width as needed */
+}

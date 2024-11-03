@@ -28,7 +28,7 @@ foreach ($reservas as $reserva) {
 <div class="container">
     <nav>
         <ul class="nav">
-            <li><a href="index.php">Index</a></li>
+            <li><a href="index.php">Datos</a></li>
             <li><a href="estados.php">Estados</a></li>
         </ul>
     </nav>
@@ -50,28 +50,28 @@ foreach ($reservas as $reserva) {
     for ($i = 0; $i < $maxLength; $i++) {
         echo '<tr>';
         // Mostrar reservas para el estado 0
-        echo '<td>';
+        echo '<td class ="tEstados3">';
         if (isset($reservasPorEstado[0][$i])) {
             echo "ID: " . $reservasPorEstado[0][$i]['id'] . "<br>";
             echo " " . $reservasPorEstado[0][$i]['nom_cliente'];
         }
-        echo '</td>';
+        echo '</td class ="tEstados3">';
 
         // Mostrar reservas para el estado 1
-        echo '<td>';
+        echo '<td class ="tEstados3">';
         if (isset($reservasPorEstado[1][$i])) {
             echo "ID: " . $reservasPorEstado[1][$i]['id'] . "<br>";
             echo " " . $reservasPorEstado[1][$i]['nom_cliente'];
         }
-        echo '</td>';
+        echo '</td class ="tEstados3">';
 
         // Mostrar reservas para el estado 2
-        echo '<td>';
+        echo '<td class ="tEstados3">';
         if (isset($reservasPorEstado[2][$i])) {
             echo "ID: " . $reservasPorEstado[2][$i]['id'] . "<br>";
             echo " " . $reservasPorEstado[2][$i]['nom_cliente'];
         }
-        echo '</td>';
+        echo '</td class ="tEstados3">';
 
         echo '</tr>';
     }

@@ -55,22 +55,27 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_FILES['file'])) {
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Reservas de Restaurante</title>
+    <title>Reservas</title>
     <link rel="stylesheet" href="style.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
-<h1>Subir Archivo de Reservas</h1>
+<div class="container">
+    <nav>
+        <ul class="nav">
+            <li><a href="index.php">Datos</a></li>
+            <li><a href="estados.php">Estados</a></li>
+        </ul>
+    </nav>
+</div>
+<div class="archivo">
 <form method="post" enctype="multipart/form-data">
     <input type="file" name="file" required>
     <input type="submit" value="Cargar">
 </form>
-<ul>
-    <li><a href="index.php">Index</a></li>
-    <li><a href="estados.php">Estados</a></li>
-</ul>
-<h1>Estado de Reservas</h1>
-<table class="tAdmin">
+</div>
+<div class ="dataContainer">
+<table class="tData">
     <thead>
     <tr>
         <th>ID</th>
@@ -78,7 +83,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_FILES['file'])) {
         <th>Clientes</th>
         <th>Fecha</th>
         <th>Estado</th>
-        <th>Cambiar Estado</th>
+        <th>Actualizar</th>
     </tr>
     </thead>
     <tbody>
@@ -88,12 +93,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_FILES['file'])) {
     <?php
     $stmt = $conn->query("SELECT * FROM reservas");
     while ($row = $stmt->fetch()) {
-        echo "<tr>
+        echo "<tr >
                 <td>{$row['id']}</td>
                 <td>{$row['nom_cliente']}</td>
                 <td>{$row['num_pers']}</td>
                 <td>{$row['data']}</td>
-                <td class='estado'>{$row['estado']}</td>
+                <td >{$row['estado']}</td>
                 <td>
                     <select  id='opciones' onchange='refreshPage2()' class='estado-select' data-id='{$row['id']}'>
                         <option id value='0' " . ($row['estado'] == 0 ? 'selected' : '') . ">0</option>
@@ -115,6 +120,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_FILES['file'])) {
     </script>
     </tbody>
 </table>
+</div>
 
 <script>
     $(document).ready(function() {
