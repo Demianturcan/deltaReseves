@@ -1,7 +1,7 @@
 <?php
 
 $server = "localhost";
-$nomdDB = "reservadb";
+$nomDB = "reservadb";
 $usuariDB = "reservadb";
 $pas = "microdelta";
 

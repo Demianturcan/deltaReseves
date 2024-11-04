@@ -1,7 +1,9 @@
 <?php
 namespace src;
+
 require '../vendor/autoload.php';
 use PhpOffice\PhpSpreadsheet\IOFactory;
+use PhpOffice\PhpSpreadsheet\Shared\Date;
 
 class ExcelConfig {
     public static function leerReservas($archivo): array
@@ -15,21 +17,31 @@ class ExcelConfig {
 
             $reserva = [];
             foreach ($celdaIterator as $celda) {
-                $reserva[] = $celda->getFormattedValue();
-            }
 
+                if ($celda->getColumn() == 'F') {
+                    $valor = $celda->getValue();
+
+                    //comprobar si la celda es una fecha
+                    if (\PhpOffice\PhpSpreadsheet\Shared\Date::isDateTime($celda)) {
+                        //convertir y formatear la fecha y hora
+                        $dateTimeValue = Date::excelToDateTimeObject($valor);
+                        $reserva[] = $dateTimeValue->format('Y-m-d H:i:s');
+                    } else {
+
+                        $reserva[] = $valor;
+                    }
+                } else {
+
+                    $reserva[] = $celda->getFormattedValue();
+                }
+            }
+/*
+            //imprimir datos
+            echo "Datos leídos: " . implode(", ", $reserva) . "<br>";
+*/
             $datos[] = $reserva;
         }
 
         return $datos;
     }
 }
-
-/*
-$archivo = '../data/cola.xlsx'; // Reemplaza con la ruta real del archivo Excel
-$datos = ExcelConfig::leerReservas($archivo);
-
-echo '<pre>'; // Formato más legible
-print_r($datos);
-echo '</pre>';
-*/

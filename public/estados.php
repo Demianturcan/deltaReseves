@@ -1,11 +1,11 @@
 <?php
-require '../src/dbConfig.php';  // Asegúrate de que la conexión a la base de datos se establece aquí
+require '../src/dbConfig.php';
 
-// Consultar todas las reservas de la base de datos
+
 $stmt = $conn->query("SELECT id, nom_cliente, estado FROM reservas");
 $reservas = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-// Agrupar las reservas por estado
+//agrupar las reservas por estado
 $reservasPorEstado = [];
 foreach ($reservas as $reserva) {
     $estado = $reserva['estado'];
@@ -15,7 +15,7 @@ foreach ($reservas as $reserva) {
     $reservasPorEstado[$estado][] = $reserva;
 }
 
-// Crear la tabla HTML
+//crear la tabla HTML
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -44,12 +44,12 @@ foreach ($reservas as $reserva) {
     </thead>
     <tbody>
     <?php
-    // Determinar la cantidad máxima de reservas en los estados para crear filas
+    //calcular cantidad de reservas en los estados para crear filas
     $maxLength = max(count($reservasPorEstado[0] ?? []), count($reservasPorEstado[1] ?? []), count($reservasPorEstado[2] ?? []));
 
     for ($i = 0; $i < $maxLength; $i++) {
         echo '<tr>';
-        // Mostrar reservas para el estado 0
+        //Mostrar reservas para el estado 0
         echo '<td class ="tEstados3">';
         if (isset($reservasPorEstado[0][$i])) {
             echo "ID: " . $reservasPorEstado[0][$i]['id'] . "<br>";
@@ -57,7 +57,7 @@ foreach ($reservas as $reserva) {
         }
         echo '</td class ="tEstados3">';
 
-        // Mostrar reservas para el estado 1
+        //estado 1
         echo '<td class ="tEstados3">';
         if (isset($reservasPorEstado[1][$i])) {
             echo "ID: " . $reservasPorEstado[1][$i]['id'] . "<br>";
@@ -65,7 +65,7 @@ foreach ($reservas as $reserva) {
         }
         echo '</td class ="tEstados3">';
 
-        // Mostrar reservas para el estado 2
+        //estado 2
         echo '<td class ="tEstados3">';
         if (isset($reservasPorEstado[2][$i])) {
             echo "ID: " . $reservasPorEstado[2][$i]['id'] . "<br>";
@@ -79,26 +79,13 @@ foreach ($reservas as $reserva) {
     </tbody>
 </table>
 </div>
-<script>
-    // Function to refresh the page
-    function refreshPage() {
-        location.reload();
-    }
 
-    // Adding an event listener for storage changes
-    window.addEventListener('storage', function(event) {
-        if (event.key === 'refreshPage2') {
-            refreshPage();
-        }
-    });
-</script>
-<!--
 <script>
-    // Actualiza la página automáticamente
+    //Actualiza la pagina
     setInterval(function(){
         location.reload();
-    }, 8000);
+    }, 15000);
 </script>
--->
+
 </body>
 </html>

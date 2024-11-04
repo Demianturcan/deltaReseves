@@ -100,13 +100,13 @@ body {
 
 }
 
-/* archivo */
+/* formulario archivo */
 .archivo {
     display: grid;
-    place-items: center; /* Centers both vertically and horizontally */
-    padding: 10px; /* Full viewport height */
+    place-items: center;
+    padding: 10px;
 }
 
 .center-div {
-    width: 50%; /* Set a width as needed */
+    width: 50%;
 }

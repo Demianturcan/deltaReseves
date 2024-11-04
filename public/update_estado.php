@@ -5,7 +5,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['id']) && isset($_POST[
     $id = intval($_POST['id']);
     $estado = intval($_POST['estado']);
 
-    // Actualizar el estado en la base de datos
     $stmt = $conn->prepare("UPDATE reservas SET estado = ? WHERE id = ?");
     if ($stmt->execute([$estado, $id])) {
         echo json_encode(['success' => true]);
@@ -15,4 +14,3 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['id']) && isset($_POST[
 } else {
     echo json_encode(['success' => false]);
 }
-?>
